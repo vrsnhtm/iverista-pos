@@ -1,0 +1,113 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-espresso: #2b1b12;
+  --color-cocoa: #452c1e;
+  --color-mocha: #6b4630;
+  --color-caramel: #b97a45;
+  --color-latte: #e2cdb5;
+  --color-cream: #f6efe5;
+  --color-foam: #fffaf4;
+  --color-danger: #b3261e;
+  --color-ok: #2f6b45;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-cream text-espresso antialiased;
+    font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  button {
+    touch-action: manipulation;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-4 text-sm font-semibold transition active:scale-[0.99] disabled:pointer-events-none disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply bg-espresso text-cream hover:bg-cocoa;
+  }
+
+  .btn-secondary {
+    @apply bg-latte text-espresso hover:bg-caramel/70;
+  }
+
+  .btn-danger {
+    @apply bg-danger/10 text-danger ring-1 ring-danger/40 hover:bg-danger/20;
+  }
+
+  .btn-ghost {
+    @apply text-mocha hover:bg-latte/60 hover:text-espresso;
+  }
+
+  .card {
+    @apply rounded-2xl border border-latte/80 bg-foam shadow-sm;
+  }
+
+  .input {
+    @apply min-h-12 w-full rounded-xl border border-latte bg-white px-3 text-base text-espresso outline-none placeholder:text-mocha/50 focus:border-caramel focus:ring-2 focus:ring-caramel/30;
+  }
+
+  .label {
+    @apply mb-1 block text-xs font-semibold uppercase tracking-wide text-mocha;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide;
+  }
+
+  .table-cell {
+    @apply whitespace-nowrap px-3 py-2 text-sm;
+  }
+}
+
+@media print {
+  @page {
+    margin: 8mm;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+
+  .receipt-overlay {
+    position: static !important;
+    overflow: visible !important;
+    background: #fff !important;
+    padding: 0 !important;
+  }
+
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: none;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
