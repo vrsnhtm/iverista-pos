@@ -1,16 +1,20 @@
 import { useSyncExternalStore } from 'react'
 import type { Store } from '../types'
 import { hasKey, readJson, writeJson } from './storage'
-import { seedStore } from './seed'
+import { seedDrinks, seedStore } from './seed'
 
 const STORAGE_KEY = 'state'
 
 function loadState(): Store {
   const saved = hasKey(STORAGE_KEY) ? readJson<Store>(STORAGE_KEY) : null
   if (saved && saved.version === 1) {
+    const drinks = Array.isArray(saved.drinks) ? saved.drinks : []
+    // Add seed drinks introduced after this browser first saved data (e.g. add-ons).
+    const known = new Set(drinks.map((drink) => drink.id))
+    const missing = seedDrinks().filter((drink) => !known.has(drink.id))
     return {
       ...saved,
-      drinks: Array.isArray(saved.drinks) ? saved.drinks : [],
+      drinks: missing.length > 0 ? [...drinks, ...missing] : drinks,
       ingredients: Array.isArray(saved.ingredients) ? saved.ingredients : [],
       orders: Array.isArray(saved.orders) ? saved.orders : [],
       seqDate: saved.seqDate ?? null,

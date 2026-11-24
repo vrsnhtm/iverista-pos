@@ -56,7 +56,16 @@ function slug(text: string): string {
     .replace(/(^-|-$)/g, '')
 }
 
-const SEED_DRINKS = [...COFFEE, ...SODA, ...NON_COFFEE, ...FRUIT]
+const ADD_ONS: SeedDrink[] = [
+  { name: 'Espresso Shot', category: 'Add-ons', priceCents: 3000, active: true },
+  { name: 'French Vanilla Syrup', category: 'Add-ons', priceCents: 2000, active: true },
+  { name: 'Caramel Syrup', category: 'Add-ons', priceCents: 2000, active: true },
+  { name: 'White Chocolate Syrup', category: 'Add-ons', priceCents: 2000, active: true },
+  { name: 'Salted Caramel Syrup', category: 'Add-ons', priceCents: 2000, active: true },
+  { name: 'Sea Salt Foam', category: 'Add-ons', priceCents: 2000, active: true },
+]
+
+const SEED_DRINKS = [...COFFEE, ...SODA, ...NON_COFFEE, ...FRUIT, ...ADD_ONS]
 
 const SEED_INGREDIENTS: SeedIngredient[] = [
   { name: 'coffee bean', unit: 'g' },

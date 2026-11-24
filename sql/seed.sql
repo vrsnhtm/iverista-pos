@@ -48,6 +48,12 @@ INSERT OR IGNORE INTO drinks (id, name, category, price_cents, active) VALUES
   ('fruit-blueberry',              'Blueberry',            'Fruit',         0, 0),
   ('fruit-strawberry',             'Strawberry',           'Fruit',         0, 0),
   ('fruit-green-apple',            'Green Apple',          'Fruit',         0, 0),
-  ('fruit-lychee',                 'Lychee',               'Fruit',         0, 0);
+  ('fruit-lychee',                 'Lychee',               'Fruit',         0, 0),
+  ('add-ons-espresso-shot',        'Espresso Shot',        'Add-ons',    3000, 1),
+  ('add-ons-french-vanilla-syrup', 'French Vanilla Syrup', 'Add-ons',    2000, 1),
+  ('add-ons-caramel-syrup',        'Caramel Syrup',        'Add-ons',    2000, 1),
+  ('add-ons-white-chocolate-syrup','White Chocolate Syrup','Add-ons',    2000, 1),
+  ('add-ons-salted-caramel-syrup', 'Salted Caramel Syrup', 'Add-ons',    2000, 1),
+  ('add-ons-sea-salt-foam',        'Sea Salt Foam',        'Add-ons',    2000, 1);
 
 COMMIT;

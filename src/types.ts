@@ -1,6 +1,6 @@
-export type Category = 'Coffee' | 'Soda' | 'Non-coffee' | 'Fruit'
+export type Category = 'Coffee' | 'Soda' | 'Non-coffee' | 'Fruit' | 'Add-ons'
 
-export const CATEGORIES: Category[] = ['Coffee', 'Soda', 'Non-coffee', 'Fruit']
+export const CATEGORIES: Category[] = ['Coffee', 'Soda', 'Non-coffee', 'Fruit', 'Add-ons']
 
 export type OrderType = 'dine-in' | 'takeaway'
 export type PaymentMethod = 'cash' | 'gcash'
